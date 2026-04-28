@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 160" width="720" height="160" role="img" aria-label="werqa coin + wordmark horizontal lockup">
+  <defs>
+    <style>
+      @import url('https://api.fontshare.com/v2/css?f[]=clash-display@500&display=swap');
+      .w { font-family: 'Clash Display', 'Inter', sans-serif; font-weight: 500; font-size: 110px; letter-spacing: -0.035em; }
+    </style>
+    <radialGradient id="mintCoin2" cx="0.42" cy="0.35" r="0.75">
+      <stop offset="0%" stop-color="#1AE0A9"/>
+      <stop offset="100%" stop-color="#00A077"/>
+    </radialGradient>
+  </defs>
+  <!-- coin -->
+  <g transform="translate(0,15)">
+    <circle cx="65" cy="65" r="60" fill="#0A0E1A"/>
+    <circle cx="65" cy="65" r="48" fill="url(#mintCoin2)"/>
+    <path d="M30 60 L42 88 L51 60 L65 88 L79 60 L88 88 L100 44"
+          stroke="#0A0E1A" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </g>
+  <!-- wordmark -->
+  <text x="170" y="115" class="w" fill="#0A0E1A">werq<tspan font-style="italic" fill="#00C896">a</tspan></text>
+</svg>

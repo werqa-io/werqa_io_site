@@ -2,404 +2,592 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <meta name="theme-color" content="#0A0E1A" />
+  <meta name="color-scheme" content="light" />
   <title>WERQA — Cross-border commerce, carried.</title>
   <meta name="description" content="WERQA is a marketplace where shoppers in one country buy from stores in another, and travellers already flying that route earn by carrying the parcel — payment held in escrow until handoff." />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
   <meta property="og:title" content="WERQA — Cross-border commerce, carried." />
   <meta property="og:description" content="Buy from stores in one country. A verified traveller already flying your route brings it. Money held in escrow until handoff." />
-  <meta property="og:url" content="https://werqa.io" />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://werqa.io" />
   <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@500&f[]=satoshi@400,500,700&display=swap" />
+
   <style>
-    :root{
-      --ink:#0A0E1A;
-      --charcoal:#151B2A;
-      --mint:#00C896;
-      --mint-hover:#00B388;
-      --mint-soft:rgba(0,200,150,0.1);
-      --mint-border:rgba(0,200,150,0.3);
-      --pearl:#F5F6F8;
-      --sterling:#C0C4CC;
-      --graphite:#242B3D;
-      --error:#FF6B6B;
+    :root {
+      --ink: #0A0E1A;
+      --charcoal: #151B2A;
+      --graphite: #242B3D;
+      --gunmetal: #8B91A0;
+      --sterling: #C0C4CC;
+      --platinum: #E2E5EA;
+      --pearl: #F5F6F8;
+      --white: #FFFFFF;
+      --mint: #00C896;
+      --mint-deep: #00A077;
+      --mint-cloud: #D4F9EC;
+      --error: #FF5C5C;
+
+      --font-display: 'Clash Display', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Satoshi', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+      --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px; --s-5: 20px; --s-6: 24px;
+      --s-8: 32px; --s-10: 40px; --s-12: 48px; --s-16: 64px; --s-20: 80px; --s-24: 96px;
+      --page-x: clamp(20px, 5vw, 64px);
+      --section-y: clamp(64px, 10vw, 128px);
+
+      --r-sm: 4px; --r-md: 8px; --r-lg: 12px; --r-xl: 20px; --r-2xl: 28px; --r-full: 9999px;
+
+      --sh-xs: 0 1px 2px rgba(10,14,26,.05);
+      --sh-sm: 0 2px 6px rgba(10,14,26,.07);
+      --sh-md: 0 8px 24px rgba(10,14,26,.10);
+      --sh-lg: 0 20px 60px rgba(10,14,26,.18);
+      --sh-mint: 0 8px 30px rgba(0,200,150,.35);
+      --sh-hairline: inset 0 0 0 1px rgba(192,196,204,.35);
+
+      --ease-ui: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+      --t-d1: clamp(48px, 8vw, 84px);
+      --t-h1: clamp(32px, 5vw, 48px);
+      --t-h2: clamp(26px, 3.4vw, 32px);
+      --t-h3: clamp(20px, 2.2vw, 24px);
+      --t-lead: clamp(17px, 1.6vw, 20px);
+
+      --max: 1200px;
+      --read: 720px;
     }
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{height:100%;scroll-behavior:smooth}
-    body{
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-      background:var(--ink);
-      color:var(--pearl);
-      min-height:100vh;
-      display:flex;
-      flex-direction:column;
-      line-height:1.6;
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; text-rendering: optimizeLegibility; scroll-behavior: smooth; }
+    body { margin: 0; background: var(--pearl); color: var(--ink); font-family: var(--font-body); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    img, svg, video { display: block; max-width: 100%; height: auto; }
+    button { font: inherit; color: inherit; cursor: pointer; background: none; border: 0; padding: 0; }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible, button:focus-visible, input:focus-visible {
+      outline: 2px solid var(--mint); outline-offset: 3px; border-radius: 2px;
     }
-    .container{max-width:960px;margin:0 auto;padding:0 24px}
-    section{padding:64px 0}
+    ::selection { background: var(--mint); color: var(--ink); }
+
+    h1, h2, h3, h4 { margin: 0; font-family: var(--font-display); font-weight: 500; letter-spacing: -0.02em; }
+    .t-d1 { font-size: var(--t-d1); line-height: 1.02; letter-spacing: -0.035em; }
+    .t-h1 { font-size: var(--t-h1); line-height: 1.1; letter-spacing: -0.02em; }
+    .t-h2 { font-size: var(--t-h2); line-height: 1.15; letter-spacing: -0.015em; }
+    .t-h3 { font-size: var(--t-h3); line-height: 1.25; letter-spacing: -0.01em; font-family: var(--font-body); font-weight: 700; }
+    .t-lead { font-size: var(--t-lead); line-height: 1.55; color: var(--graphite); }
+    .t-eyebrow { font-family: var(--font-body); font-weight: 500; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mint-deep); }
+    em.accent, .italic-a { font-style: italic; color: var(--mint-deep); font-weight: 500; }
+    .on-dark { color: var(--pearl); }
+    .on-dark .t-lead { color: var(--sterling); }
+    .on-dark .t-eyebrow { color: var(--mint); }
+
+    .container { width: 100%; max-width: var(--max); margin-inline: auto; padding-inline: var(--page-x); }
+    .reading { max-width: var(--read); }
+    section { padding-block: var(--section-y); }
+    .bg-ink { background: var(--ink); color: var(--pearl); }
+    .bg-pearl { background: var(--pearl); color: var(--ink); }
+
+    .grid { display: grid; gap: var(--s-6); }
+    .grid-3 { grid-template-columns: 1fr; }
+    @media (min-width: 768px) {
+      .grid-3 { grid-template-columns: repeat(3, 1fr); gap: var(--s-8); }
+    }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: var(--s-2);
+      padding: 14px 22px;
+      border-radius: var(--r-full);
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: -0.005em;
+      transition: transform 200ms var(--ease-ui), background 200ms var(--ease-ui);
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn:active { transform: translateY(0); }
+    .btn-primary { background: var(--mint); color: var(--ink); box-shadow: var(--sh-mint); }
+    .btn-primary:hover { background: var(--mint-deep); color: var(--white); }
+    .btn-ghost { background: transparent; color: var(--ink); border: 1px solid var(--sterling); }
+    .btn-ghost:hover { border-color: var(--ink); }
+    .on-dark .btn-ghost { color: var(--pearl); border-color: rgba(192,196,204,.35); }
+    .on-dark .btn-ghost:hover { border-color: var(--mint); }
+    .btn-sm { padding: 9px 16px; font-size: 13px; }
+
+    .card {
+      background: var(--white);
+      border-radius: var(--r-xl);
+      padding: var(--s-8);
+      box-shadow: var(--sh-sm), var(--sh-hairline);
+      transition: transform 320ms var(--ease-ui), box-shadow 320ms var(--ease-ui);
+    }
+    .card:hover { transform: translateY(-2px); box-shadow: var(--sh-md), var(--sh-hairline); }
+
+    /* Header */
+    .site-header {
+      position: sticky; top: 0; z-index: 40;
+      background: color-mix(in srgb, var(--pearl) 82%, transparent);
+      -webkit-backdrop-filter: saturate(140%) blur(14px);
+      backdrop-filter: saturate(140%) blur(14px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 200ms var(--ease-ui);
+    }
+    .site-header.scrolled { border-bottom-color: var(--platinum); }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding-block: 14px; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 500; font-size: 22px; letter-spacing: -0.02em; }
+    .brand .dot-mark { width: 24px; height: 24px; background: var(--ink); border-radius: 50%; display: inline-grid; place-items: center; }
+    .brand .dot-mark span { width: 14px; height: 14px; background: var(--mint); border-radius: 50%; }
+    .nav-links { display: none; gap: var(--s-6); }
+    .nav-links a { font-size: 14px; color: var(--graphite); padding: 6px 4px; }
+    .nav-links a:hover { color: var(--ink); }
+    @media (min-width: 900px) { .nav-links { display: inline-flex; } }
 
     /* Hero */
-    .hero{padding:96px 0 64px}
-    .hero h1{font-size:54px;line-height:1.05;letter-spacing:-0.02em;margin-bottom:18px;font-weight:700}
-    .hero h1 .mint{color:var(--mint)}
-    .hero .lead{font-size:20px;color:var(--sterling);max-width:560px;margin-bottom:36px}
-    .hero .cta{
-      display:inline-block;
-      background:var(--mint);
-      color:var(--ink);
-      text-decoration:none;
-      font-weight:600;
-      padding:14px 28px;
-      border-radius:8px;
-      transition:background 0.15s ease;
+    .hero {
+      position: relative;
+      padding-top: clamp(48px, 7vw, 80px);
+      padding-bottom: clamp(60px, 8vw, 120px);
+      background: radial-gradient(1100px 600px at 85% 10%, rgba(0,200,150,.10), transparent 60%),
+                  linear-gradient(180deg, var(--pearl) 0%, var(--platinum) 100%);
+      overflow: hidden;
     }
-    .hero .cta:hover{background:var(--mint-hover)}
-    @media(max-width:640px){
-      .hero{padding:64px 0 48px}
-      .hero h1{font-size:38px}
-      .hero .lead{font-size:17px}
-    }
+    .hero-grid { display: grid; gap: var(--s-10); grid-template-columns: 1fr; align-items: center; }
+    @media (min-width: 1024px) { .hero-grid { grid-template-columns: 1.1fr 0.9fr; gap: var(--s-20); } }
+    .hero h1 { margin-block-start: var(--s-4); }
+    .hero .t-lead { margin-block-start: var(--s-6); max-width: 54ch; }
+    .hero-ctas { margin-block-start: var(--s-10); display: flex; gap: var(--s-3); flex-wrap: wrap; }
+    .hero-proof { margin-block-start: var(--s-10); display: flex; gap: var(--s-6); flex-wrap: wrap; color: var(--gunmetal); font-size: 13px; }
+    .hero-proof strong { color: var(--ink); font-weight: 700; }
 
-    /* Section meta */
-    .section-eyebrow{
-      font-size:13px;
-      font-weight:600;
-      letter-spacing:0.18em;
-      text-transform:uppercase;
-      color:var(--mint);
-      margin-bottom:14px;
+    .hero-visual {
+      position: relative; aspect-ratio: 1/1; max-width: 520px; margin-inline: auto;
+      display: grid; place-items: center;
     }
-    .section-heading{
-      font-size:34px;
-      line-height:1.15;
-      letter-spacing:-0.01em;
-      margin-bottom:40px;
-      font-weight:700;
+    .coin-stage { width: 78%; aspect-ratio: 1/1; display: grid; place-items: center; perspective: 900px; }
+    .coin {
+      width: 100%; aspect-ratio: 1/1;
+      transform-style: preserve-3d;
+      animation: coinFloat 7s var(--ease-ui) infinite alternate;
     }
-    @media(max-width:640px){
-      .section-heading{font-size:26px;margin-bottom:32px}
+    @keyframes coinFloat { from { transform: translateY(0) rotate(-1deg); } to { transform: translateY(-10px) rotate(1deg); } }
+    .hero-badge {
+      position: absolute; bottom: 8%; left: 4%;
+      background: var(--white); border-radius: var(--r-full); padding: 10px 14px;
+      display: inline-flex; align-items: center; gap: 8px; box-shadow: var(--sh-md);
+      font-size: 13px; font-weight: 700;
     }
+    .hero-badge .tick {
+      width: 18px; height: 18px; border-radius: 50%; background: var(--mint);
+      display: grid; place-items: center; color: var(--ink); font-size: 11px;
+    }
+    .hero-escrow {
+      position: absolute; top: 6%; right: 2%;
+      background: var(--ink); color: var(--pearl); border-radius: var(--r-lg); padding: 12px 14px;
+      font-size: 12px; letter-spacing: 0.05em; box-shadow: var(--sh-md);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .hero-escrow strong { color: var(--mint); font-weight: 700; }
 
     /* How it works */
-    .howitworks{background:var(--charcoal);border-top:1px solid var(--graphite);border-bottom:1px solid var(--graphite)}
-    .steps{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:20px;
+    .step { position: relative; padding-top: var(--s-12); }
+    .step-num {
+      position: absolute; top: 0; left: 0;
+      font-family: var(--font-display); font-size: 56px; font-weight: 500; letter-spacing: -0.035em;
+      color: var(--platinum);
     }
-    @media(max-width:760px){.steps{grid-template-columns:1fr}}
-    .step{
-      background:var(--ink);
-      padding:28px 24px;
-      border-radius:12px;
-      border:1px solid var(--graphite);
+    .step-icon {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: var(--mint-cloud); color: var(--mint-deep);
+      display: grid; place-items: center;
     }
-    .step-num{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width:36px;
-      height:36px;
-      border-radius:50%;
-      background:var(--mint-soft);
-      color:var(--mint);
-      font-weight:600;
-      margin-bottom:16px;
-      font-size:15px;
-    }
-    .step h3{font-size:20px;margin-bottom:10px;font-weight:600}
-    .step p{color:var(--sterling);font-size:15px;line-height:1.6}
+    .step h3 { margin-block: var(--s-4) var(--s-2); }
 
     /* Trust */
-    .trust .trust-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:20px;
+    .trust-grid { display: grid; gap: var(--s-6); grid-template-columns: 1fr; }
+    @media (min-width: 768px) { .trust-grid { grid-template-columns: repeat(3, 1fr); } }
+    .trust-card {
+      background: var(--white); border-radius: var(--r-xl);
+      padding: var(--s-8);
+      box-shadow: var(--sh-sm), var(--sh-hairline);
+      transition: transform 320ms var(--ease-ui), box-shadow 320ms var(--ease-ui);
     }
-    @media(max-width:760px){.trust .trust-grid{grid-template-columns:1fr}}
-    .trust-card{
-      background:var(--charcoal);
-      padding:28px 24px;
-      border-radius:12px;
-      border:1px solid var(--graphite);
+    .trust-card:hover { transform: translateY(-2px); box-shadow: var(--sh-md), var(--sh-hairline); }
+    .trust-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      background: var(--ink); color: var(--mint);
+      display: grid; place-items: center; margin-bottom: var(--s-6);
     }
-    .trust-icon{
-      width:44px;
-      height:44px;
-      border-radius:10px;
-      background:var(--mint-soft);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      margin-bottom:16px;
-      color:var(--mint);
-    }
-    .trust-icon svg{width:22px;height:22px;stroke-width:1.8}
-    .trust-card h3{font-size:18px;margin-bottom:8px;font-weight:600}
-    .trust-card p{color:var(--sterling);font-size:14px;line-height:1.6}
+    .trust-card h3 { margin-bottom: var(--s-3); }
 
     /* FAQ */
-    .faq{background:var(--charcoal);border-top:1px solid var(--graphite);border-bottom:1px solid var(--graphite)}
-    .faq-list{display:flex;flex-direction:column;gap:14px;max-width:760px}
-    .faq-item{
-      background:var(--ink);
-      padding:24px 24px;
-      border-radius:10px;
-      border:1px solid var(--graphite);
+    .faq-list { display: grid; gap: var(--s-3); max-width: 760px; margin-inline: auto; }
+    .faq-item {
+      background: var(--white); border-radius: var(--r-lg); padding: var(--s-6) var(--s-8);
+      box-shadow: var(--sh-xs), var(--sh-hairline);
     }
-    .faq-item h3{font-size:17px;margin-bottom:8px;font-weight:600}
-    .faq-item p{color:var(--sterling);font-size:15px;line-height:1.65}
+    .faq-item h3 { margin-bottom: var(--s-2); font-size: 17px; }
+    .faq-item p { color: var(--graphite); font-size: 15px; line-height: 1.6; }
 
     /* Waitlist */
-    .waitlist .lead{
-      color:var(--sterling);
-      max-width:520px;
-      margin-bottom:32px;
-      font-size:17px;
+    .waitlist-card {
+      background: var(--white); border-radius: var(--r-2xl);
+      padding: clamp(32px, 5vw, 64px);
+      box-shadow: var(--sh-lg), var(--sh-hairline);
+      max-width: 720px; margin-inline: auto; margin-top: var(--s-12);
+      color: var(--ink);
     }
-    form{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      max-width:600px;
+    .form-grid { display: grid; gap: var(--s-4); grid-template-columns: 1fr; }
+    @media (min-width: 768px) { .form-grid { grid-template-columns: 1fr 1fr; } }
+    .field { display: flex; flex-direction: column; gap: 6px; }
+    .field label { font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gunmetal); }
+    .field input {
+      width: 100%; padding: 14px 16px;
+      font: inherit; color: var(--ink); background: var(--pearl);
+      border: 1px solid var(--platinum); border-radius: var(--r-lg);
+      transition: border-color 180ms var(--ease-ui), background 180ms var(--ease-ui);
     }
-    form input[type="email"],form input[type="text"]{
-      flex:1;
-      min-width:180px;
-      background:var(--charcoal);
-      border:1px solid var(--graphite);
-      color:var(--pearl);
-      padding:14px 16px;
-      border-radius:8px;
-      font-size:15px;
-      font-family:inherit;
-      transition:border-color 0.15s ease;
+    .field input:focus { outline: none; border-color: var(--ink); background: var(--white); }
+    .form-actions { margin-top: var(--s-6); display: flex; align-items: center; justify-content: space-between; gap: var(--s-4); flex-wrap: wrap; }
+    .form-msg { margin-top: var(--s-4); font-size: 14px; min-height: 1.4em; }
+    .form-msg.ok { color: var(--mint-deep); font-weight: 700; }
+    .form-msg.err { color: var(--error); font-weight: 700; }
+    .consent { font-size: 12px; color: var(--gunmetal); line-height: 1.55; }
+    .consent a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--sterling); }
+    .honeypot {
+      position: absolute !important; left: -9999px !important; top: -9999px !important;
+      height: 0 !important; width: 0 !important; opacity: 0 !important; pointer-events: none !important;
     }
-    form input::placeholder{color:var(--sterling)}
-    form input:focus{outline:none;border-color:var(--mint)}
-    form button{
-      background:var(--mint);
-      color:var(--ink);
-      border:0;
-      padding:14px 28px;
-      border-radius:8px;
-      font-weight:600;
-      font-size:15px;
-      font-family:inherit;
-      cursor:pointer;
-      transition:background 0.15s ease;
-    }
-    form button:hover:not(:disabled){background:var(--mint-hover)}
-    form button:disabled{opacity:0.6;cursor:not-allowed}
-    .honeypot{
-      position:absolute !important;
-      left:-9999px !important;
-      top:-9999px !important;
-      height:0 !important;
-      width:0 !important;
-      opacity:0 !important;
-      pointer-events:none !important;
-    }
-    .form-status{margin-top:16px;font-size:14px;min-height:20px}
-    .form-status.ok{color:var(--mint)}
-    .form-status.err{color:var(--error)}
 
     /* Footer */
-    .site-footer{
-      background:var(--charcoal);
-      border-top:1px solid var(--graphite);
-      padding:40px 0 32px;
+    footer { background: var(--ink); color: var(--sterling); padding-block: var(--s-16); }
+    .footer-grid { display: grid; grid-template-columns: 1fr; gap: var(--s-10); }
+    @media (min-width: 768px) { .footer-grid { grid-template-columns: 2fr 1fr 1fr; gap: var(--s-10); } }
+    footer h4 { font-family: var(--font-body); font-size: 12px; font-weight: 500; color: var(--sterling); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: var(--s-4); }
+    footer ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+    footer a { color: var(--sterling); font-size: 14px; }
+    footer a:hover { color: var(--mint); }
+    .footer-brand { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-display); font-size: 28px; color: var(--pearl); font-weight: 500; letter-spacing: -0.025em; margin-bottom: var(--s-4); }
+    .footer-brand em { color: var(--mint); font-style: italic; }
+    .footer-tagline { color: var(--sterling); font-size: 14px; max-width: 320px; }
+    .social { display: flex; gap: 10px; margin-top: var(--s-6); }
+    .social a {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: rgba(192,196,204,.08); border: 1px solid rgba(192,196,204,.15);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--sterling); transition: all 0.18s var(--ease-ui);
     }
-    .footer-grid{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      flex-wrap:wrap;
-      gap:24px;
+    .social a:hover { color: var(--mint); border-color: var(--mint); background: rgba(0,200,150,.1); }
+    .social svg { width: 16px; height: 16px; fill: currentColor; }
+    .footer-bottom {
+      border-top: 1px solid rgba(192,196,204,.15);
+      margin-top: var(--s-16); padding-top: var(--s-6);
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--s-4);
+      font-size: 12px; color: var(--gunmetal);
     }
-    .footer-links{display:flex;gap:24px;flex-wrap:wrap}
-    .footer-links a{
-      color:var(--sterling);
-      text-decoration:none;
-      font-size:14px;
-      transition:color 0.15s ease;
-    }
-    .footer-links a:hover{color:var(--mint)}
-    .social{display:flex;gap:10px}
-    .social a{
-      width:38px;
-      height:38px;
-      border-radius:50%;
-      background:var(--ink);
-      border:1px solid var(--graphite);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:var(--sterling);
-      transition:all 0.15s ease;
-    }
-    .social a:hover{color:var(--mint);border-color:var(--mint-border);background:var(--mint-soft)}
-    .social svg{width:16px;height:16px;fill:currentColor}
-    .colophon{
-      max-width:960px;
-      margin:24px auto 0;
-      padding:24px 24px 0;
-      border-top:1px solid var(--graphite);
-      text-align:center;
-      font-size:12px;
-      color:var(--sterling);
-      opacity:0.7;
+
+    /* Skip link */
+    .skip { position: absolute; left: -9999px; top: 0; }
+    .skip:focus { left: var(--s-4); top: var(--s-4); background: var(--ink); color: var(--pearl); padding: 10px 14px; border-radius: var(--r-md); z-index: 100; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .coin { animation: none; }
+      * { scroll-behavior: auto !important; }
     }
   </style>
 </head>
 <body>
+  <a href="#main" class="skip">Skip to content</a>
 
-  <section class="hero">
-    <div class="container">
-      <h1>WERQA. <span class="mint">Cross-border commerce, carried.</span></h1>
-      <p class="lead">Buy from stores in one country. A verified traveller already flying your route brings it. Money held in escrow until handoff.</p>
-      <a href="#waitlist" class="cta">Join the waitlist</a>
+  <header class="site-header" id="siteHeader">
+    <div class="container nav" role="navigation" aria-label="Primary">
+      <a href="#" class="brand" aria-label="WERQA home">
+        <span class="dot-mark" aria-hidden="true"><span></span></span>
+        werq<span style="font-style:italic;color:var(--mint-deep)">a</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Section links">
+        <a href="#how">How it works</a>
+        <a href="#trust">Trust</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <a href="#waitlist" class="btn btn-primary btn-sm">Join waitlist</a>
     </div>
-  </section>
+  </header>
 
-  <section class="howitworks">
-    <div class="container">
-      <p class="section-eyebrow">How it works</p>
-      <h2 class="section-heading">Three steps. No surprises.</h2>
-      <div class="steps">
-        <div class="step">
-          <div class="step-num">1</div>
-          <h3>Order</h3>
-          <p>Pick what you want from a store abroad. WERQA shows the landed cost in your local currency.</p>
+  <main id="main">
+
+    <section class="hero" aria-labelledby="hero-h">
+      <div class="container hero-grid">
+        <div>
+          <span class="t-eyebrow">Cross-border · Verified · Private</span>
+          <h1 class="t-d1" id="hero-h">
+            Cross-border <em class="italic-a">commerce</em>,<br>
+            carried.
+          </h1>
+          <p class="t-lead">
+            Buy from stores in one country. A verified traveller already flying your route brings it. Money held in escrow until handoff.
+          </p>
+          <div class="hero-ctas">
+            <a href="#waitlist" class="btn btn-primary">Join the waitlist</a>
+            <a href="#how" class="btn btn-ghost">See how it works</a>
+          </div>
+          <div class="hero-proof">
+            <div><strong>Escrow-backed</strong> payments</div>
+            <div><strong>Verified</strong> travellers</div>
+            <div><strong>Photo + OTP</strong> at handoff</div>
+          </div>
         </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <h3>Match</h3>
-          <p>A verified traveller already flying that route accepts and carries it as personal baggage.</p>
-        </div>
-        <div class="step">
-          <div class="step-num">3</div>
-          <h3>Handoff</h3>
-          <p>Meet at the agreed point. Confirm receipt. Money is released from escrow.</p>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="coin-stage">
+            <div class="coin">
+              <svg viewBox="0 0 160 160" width="100%" height="100%" role="img" aria-label="WERQA coin">
+                <defs>
+                  <radialGradient id="coinFace" cx="0.5" cy="0.4" r="0.7">
+                    <stop offset="0%" stop-color="#1B2236"/>
+                    <stop offset="100%" stop-color="#0A0E1A"/>
+                  </radialGradient>
+                  <linearGradient id="rim" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#C0C4CC"/>
+                    <stop offset="100%" stop-color="#8B91A0"/>
+                  </linearGradient>
+                </defs>
+                <g stroke="url(#rim)" stroke-width="2" stroke-linecap="round" opacity="0.9">
+                  <g transform="translate(80,80)">
+                    <g id="hero-ticks"><line x1="0" y1="-77" x2="0" y2="-71"/></g>
+                    <use href="#hero-ticks" transform="rotate(12)"/><use href="#hero-ticks" transform="rotate(24)"/><use href="#hero-ticks" transform="rotate(36)"/>
+                    <use href="#hero-ticks" transform="rotate(48)"/><use href="#hero-ticks" transform="rotate(60)"/><use href="#hero-ticks" transform="rotate(72)"/>
+                    <use href="#hero-ticks" transform="rotate(84)"/><use href="#hero-ticks" transform="rotate(96)"/><use href="#hero-ticks" transform="rotate(108)"/>
+                    <use href="#hero-ticks" transform="rotate(120)"/><use href="#hero-ticks" transform="rotate(132)"/><use href="#hero-ticks" transform="rotate(144)"/>
+                    <use href="#hero-ticks" transform="rotate(156)"/><use href="#hero-ticks" transform="rotate(168)"/><use href="#hero-ticks" transform="rotate(180)"/>
+                    <use href="#hero-ticks" transform="rotate(192)"/><use href="#hero-ticks" transform="rotate(204)"/><use href="#hero-ticks" transform="rotate(216)"/>
+                    <use href="#hero-ticks" transform="rotate(228)"/><use href="#hero-ticks" transform="rotate(240)"/><use href="#hero-ticks" transform="rotate(252)"/>
+                    <use href="#hero-ticks" transform="rotate(264)"/><use href="#hero-ticks" transform="rotate(276)"/><use href="#hero-ticks" transform="rotate(288)"/>
+                    <use href="#hero-ticks" transform="rotate(300)"/><use href="#hero-ticks" transform="rotate(312)"/><use href="#hero-ticks" transform="rotate(324)"/>
+                    <use href="#hero-ticks" transform="rotate(336)"/><use href="#hero-ticks" transform="rotate(348)"/>
+                  </g>
+                </g>
+                <circle cx="80" cy="80" r="62" fill="url(#coinFace)"/>
+                <circle cx="80" cy="80" r="55" fill="none" stroke="#1B2236" stroke-width="1" opacity="0.5"/>
+                <path d="M44 70 L56 100 L66 70 L80 100 L94 70 L104 100 L116 56"
+                      stroke="#00C896" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                <ellipse cx="64" cy="56" rx="22" ry="6" fill="#FFFFFF" opacity="0.05"/>
+              </svg>
+            </div>
+          </div>
+
+          <div class="hero-badge">
+            <span class="tick" aria-hidden="true">✓</span>
+            Verified at handoff
+          </div>
+          <div class="hero-escrow">
+            Escrow held · <strong>until handoff</strong>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="trust">
-    <div class="container">
-      <p class="section-eyebrow">Built for trust</p>
-      <h2 class="section-heading">Designed so neither side has to take it on faith.</h2>
-      <div class="trust-grid">
-        <div class="trust-card">
-          <div class="trust-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <rect x="4" y="10" width="16" height="11" rx="2"/>
-              <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
-            </svg>
-          </div>
-          <h3>Money in escrow</h3>
-          <p>Your payment is held safely until you confirm receipt at handoff. No release without confirmation.</p>
+    <section id="how" aria-labelledby="how-h">
+      <div class="container">
+        <div class="reading">
+          <span class="t-eyebrow">How it works</span>
+          <h2 class="t-h1" id="how-h" style="margin-top:var(--s-4)">Three steps. No surprises.</h2>
+          <p class="t-lead" style="margin-top:var(--s-6)">No sellers, no listings, no markups you can't explain. You pick the product, we match a traveller already flying your route, you confirm at handoff.</p>
         </div>
-        <div class="trust-card">
-          <div class="trust-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M12 2 4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4z"/>
-              <path d="M9 12l2 2 4-4"/>
-            </svg>
+
+        <div class="grid grid-3" style="margin-top:var(--s-12)">
+          <div class="step">
+            <div class="step-num">01</div>
+            <div class="step-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+            </div>
+            <h3 class="t-h3">Order</h3>
+            <p>Pick what you want from a store abroad. WERQA shows the landed cost in your local currency. The breakdown is shown before you confirm.</p>
           </div>
-          <h3>Verified travellers</h3>
-          <p>Every traveller passes identity verification and sanctions screening before they accept any order.</p>
-        </div>
-        <div class="trust-card">
-          <div class="trust-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M3 7h3l2-3h8l2 3h3v13H3z"/>
-              <circle cx="12" cy="13" r="4"/>
-            </svg>
+
+          <div class="step">
+            <div class="step-num">02</div>
+            <div class="step-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+            </div>
+            <h3 class="t-h3">Match</h3>
+            <p>A verified traveller already flying that route accepts and carries it as personal baggage. Your funds sit in escrow.</p>
           </div>
-          <h3>Photo + OTP at handoff</h3>
-          <p>Both sides confirm at the meeting point: photo of the parcel, one-time code from you. On the record.</p>
+
+          <div class="step">
+            <div class="step-num">03</div>
+            <div class="step-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4"/><path d="M3 7v10l9 4 9-4V7"/><path d="M3 7l9 4 9-4"/><path d="M12 21V11"/></svg>
+            </div>
+            <h3 class="t-h3">Handoff</h3>
+            <p>Meet at the agreed point. Confirm receipt with photo and a one-time code. Money is released from escrow.</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="faq">
-    <div class="container">
-      <p class="section-eyebrow">FAQ</p>
-      <h2 class="section-heading">A few quick answers.</h2>
-      <div class="faq-list">
-        <div class="faq-item">
-          <h3>How is pricing calculated?</h3>
-          <p>At checkout you see the total landed cost in your currency, including taxes and fees. The breakdown is shown before you confirm. No surprises.</p>
+    <section id="trust" class="bg-pearl" aria-labelledby="trust-h" style="background:linear-gradient(180deg, var(--pearl) 0%, var(--platinum) 100%)">
+      <div class="container">
+        <div class="reading">
+          <span class="t-eyebrow">Built for trust</span>
+          <h2 class="t-h1" id="trust-h" style="margin-top:var(--s-4)">Designed so neither side has to take it on faith.</h2>
         </div>
-        <div class="faq-item">
-          <h3>Is my money safe?</h3>
-          <p>Yes. Your payment is held in escrow with a licensed payment service provider. It is only released once you confirm receipt of the parcel at handoff.</p>
-        </div>
-        <div class="faq-item">
-          <h3>When does the beta open?</h3>
-          <p>Closed beta launches in May 2026. Join the waitlist above and we will email you when invitations go out.</p>
+
+        <div class="trust-grid" style="margin-top:var(--s-12)">
+          <div class="trust-card">
+            <div class="trust-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+            </div>
+            <h3 class="t-h3">Money in escrow</h3>
+            <p>Your payment is held safely until you confirm receipt at handoff. No release without confirmation.</p>
+          </div>
+          <div class="trust-card">
+            <div class="trust-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4z"/><path d="M9 12l2 2 4-4"/></svg>
+            </div>
+            <h3 class="t-h3">Verified travellers</h3>
+            <p>Every traveller passes identity verification and sanctions screening before they accept any order.</p>
+          </div>
+          <div class="trust-card">
+            <div class="trust-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h3l2-3h8l2 3h3v13H3z"/><circle cx="12" cy="13" r="4"/></svg>
+            </div>
+            <h3 class="t-h3">Photo + OTP at handoff</h3>
+            <p>Both sides confirm at the meeting point: photo of the parcel, one-time code from you. On the record.</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="waitlist" id="waitlist">
-    <div class="container">
-      <p class="section-eyebrow">Closed beta — May 2026</p>
-      <h2 class="section-heading">Be among the first.</h2>
-      <p class="lead">We'll email you when the app is ready.</p>
+    <section id="faq" aria-labelledby="faq-h">
+      <div class="container">
+        <div class="reading" style="text-align:center;margin-inline:auto">
+          <span class="t-eyebrow">FAQ</span>
+          <h2 class="t-h1" id="faq-h" style="margin-top:var(--s-4)">A few quick answers.</h2>
+        </div>
 
-      <form id="waitlist-form" novalidate>
-        <input type="email" name="email" placeholder="Email address" required autocomplete="email" />
-        <input type="text" name="city" placeholder="Your city" autocomplete="address-level2" />
-        <input type="text" name="website" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
-        <button type="submit">Join</button>
-      </form>
-      <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
-    </div>
-  </section>
+        <div class="faq-list" style="margin-top:var(--s-10)">
+          <div class="faq-item">
+            <h3 class="t-h3">How is pricing calculated?</h3>
+            <p>At checkout you see the total landed cost in your currency, including taxes and fees. The breakdown is shown before you confirm. No surprises.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="t-h3">Is my money safe?</h3>
+            <p>Yes. Your payment is held in escrow with a licensed payment service provider. It is only released once you confirm receipt at handoff.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="t-h3">When does the beta open?</h3>
+            <p>Closed beta launches in May 2026. Join the waitlist below and we will email you when invitations go out.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <footer class="site-footer">
+    <section id="waitlist" class="bg-ink on-dark" aria-labelledby="wl-h">
+      <div class="container">
+        <div class="reading">
+          <span class="t-eyebrow">Closed beta — May 2026</span>
+          <h2 class="t-h1" id="wl-h" style="margin-top:var(--s-4); color:var(--pearl)">Be among the first.</h2>
+          <p class="t-lead" style="margin-top:var(--s-6)">We will email you when the app is ready. No promotional noise — just the launch invite.</p>
+        </div>
+
+        <div class="waitlist-card">
+          <form id="waitlist-form" novalidate>
+            <div class="form-grid">
+              <div class="field">
+                <label for="wl-email">Email</label>
+                <input id="wl-email" type="email" name="email" placeholder="you@example.com" required autocomplete="email" />
+              </div>
+              <div class="field">
+                <label for="wl-city">City</label>
+                <input id="wl-city" type="text" name="city" placeholder="Abu Dhabi, Karachi, …" autocomplete="address-level2" />
+              </div>
+            </div>
+            <input type="text" name="website" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+            <div class="form-actions">
+              <p class="consent">By joining, you agree to our <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms</a>.</p>
+              <button type="submit" class="btn btn-primary">Join the waitlist</button>
+            </div>
+            <p class="form-msg" id="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
     <div class="container">
       <div class="footer-grid">
-        <div class="footer-links">
-          <a href="/privacy">Privacy</a>
-          <a href="/terms">Terms</a>
-          <a href="mailto:info@werqa.io">Contact</a>
+        <div>
+          <div class="footer-brand">werq<em>a</em></div>
+          <p class="footer-tagline">Cross-border commerce, carried. A verified traveller already flying your route brings it. Money in escrow until handoff.</p>
+          <div class="social">
+            <a href="https://x.com/Werqa_io" target="_blank" rel="noopener" aria-label="WERQA on X">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/werqa.io" target="_blank" rel="noopener" aria-label="WERQA on Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.336 3.608 1.311.975.975 1.249 2.242 1.311 3.608.058 1.266.069 1.646.069 4.851s-.012 3.584-.07 4.85c-.062 1.366-.336 2.633-1.311 3.608-.975.975-2.242 1.249-3.608 1.311-1.266.058-1.646.07-4.85.07s-3.585-.012-4.85-.07c-1.367-.062-2.633-.336-3.608-1.311-.975-.975-1.249-2.242-1.311-3.608C2.175 15.747 2.163 15.367 2.163 12s.012-3.584.07-4.85c.062-1.366.336-2.633 1.311-3.608.975-.975 2.242-1.249 3.608-1.311C8.416 2.175 8.796 2.163 12 2.163zm0 1.802c-3.141 0-3.51.012-4.747.069-1.014.046-1.564.215-1.93.358-.486.189-.832.415-1.196.779-.364.364-.59.71-.779 1.196-.143.366-.312.916-.358 1.93-.057 1.237-.069 1.606-.069 4.747s.012 3.51.069 4.747c.046 1.014.215 1.564.358 1.93.189.486.415.832.779 1.196.364.364.71.59 1.196.779.366.143.916.312 1.93.358 1.237.057 1.606.069 4.747.069s3.51-.012 4.747-.069c1.014-.046 1.564-.215 1.93-.358.486-.189.832-.415 1.196-.779.364-.364.59-.71.779-1.196.143-.366.312-.916.358-1.93.057-1.237.069-1.606.069-4.747s-.012-3.51-.069-4.747c-.046-1.014-.215-1.564-.358-1.93a3.225 3.225 0 0 0-.779-1.196 3.225 3.225 0 0 0-1.196-.779c-.366-.143-.916-.312-1.93-.358-1.237-.057-1.606-.069-4.747-.069zm0 3.063A5.135 5.135 0 1 1 12 17.135 5.135 5.135 0 0 1 12 7.028zm0 8.468A3.333 3.333 0 1 0 12 8.83a3.333 3.333 0 0 0 0 6.666zm6.538-8.671a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z"/></svg>
+            </a>
+            <a href="https://www.tiktok.com/@werqa.io" target="_blank" rel="noopener" aria-label="WERQA on TikTok">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 0 1-5.201 1.743 2.896 2.896 0 0 1 3.183-4.51v-3.5a6.329 6.329 0 0 0-5.394 10.692 6.328 6.328 0 0 0 10.857-4.424V8.687a8.182 8.182 0 0 0 4.773 1.526V6.79a4.831 4.831 0 0 1-1.003-.104z"/></svg>
+            </a>
+          </div>
         </div>
-        <div class="social">
-          <a href="https://x.com/Werqa_io" target="_blank" rel="noopener" aria-label="WERQA on X">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          </a>
-          <a href="https://www.instagram.com/werqa.io" target="_blank" rel="noopener" aria-label="WERQA on Instagram">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.336 3.608 1.311.975.975 1.249 2.242 1.311 3.608.058 1.266.069 1.646.069 4.851s-.012 3.584-.07 4.85c-.062 1.366-.336 2.633-1.311 3.608-.975.975-2.242 1.249-3.608 1.311-1.266.058-1.646.07-4.85.07s-3.585-.012-4.85-.07c-1.367-.062-2.633-.336-3.608-1.311-.975-.975-1.249-2.242-1.311-3.608C2.175 15.747 2.163 15.367 2.163 12s.012-3.584.07-4.85c.062-1.366.336-2.633 1.311-3.608.975-.975 2.242-1.249 3.608-1.311C8.416 2.175 8.796 2.163 12 2.163zm0 1.802c-3.141 0-3.51.012-4.747.069-1.014.046-1.564.215-1.93.358-.486.189-.832.415-1.196.779-.364.364-.59.71-.779 1.196-.143.366-.312.916-.358 1.93-.057 1.237-.069 1.606-.069 4.747s.012 3.51.069 4.747c.046 1.014.215 1.564.358 1.93.189.486.415.832.779 1.196.364.364.71.59 1.196.779.366.143.916.312 1.93.358 1.237.057 1.606.069 4.747.069s3.51-.012 4.747-.069c1.014-.046 1.564-.215 1.93-.358.486-.189.832-.415 1.196-.779.364-.364.59-.71.779-1.196.143-.366.312-.916.358-1.93.057-1.237.069-1.606.069-4.747s-.012-3.51-.069-4.747c-.046-1.014-.215-1.564-.358-1.93a3.225 3.225 0 0 0-.779-1.196 3.225 3.225 0 0 0-1.196-.779c-.366-.143-.916-.312-1.93-.358-1.237-.057-1.606-.069-4.747-.069zm0 3.063A5.135 5.135 0 1 1 12 17.135 5.135 5.135 0 0 1 12 7.028zm0 8.468A3.333 3.333 0 1 0 12 8.83a3.333 3.333 0 0 0 0 6.666zm6.538-8.671a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z"/></svg>
-          </a>
-          <a href="https://www.tiktok.com/@werqa.io" target="_blank" rel="noopener" aria-label="WERQA on TikTok">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 0 1-5.201 1.743 2.896 2.896 0 0 1 3.183-4.51v-3.5a6.329 6.329 0 0 0-5.394 10.692 6.328 6.328 0 0 0 10.857-4.424V8.687a8.182 8.182 0 0 0 4.773 1.526V6.79a4.831 4.831 0 0 1-1.003-.104z"/></svg>
-          </a>
+
+        <div>
+          <h4>Product</h4>
+          <ul>
+            <li><a href="#how">How it works</a></li>
+            <li><a href="#trust">Trust</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#waitlist">Join waitlist</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="/privacy">Privacy</a></li>
+            <li><a href="/terms">Terms</a></li>
+            <li><a href="mailto:info@werqa.io">Contact</a></li>
+          </ul>
         </div>
       </div>
-      <p class="colophon">© 2026 WERQA. WERQA is a technology platform and is not a party to the transaction between shopper and traveller.</p>
+
+      <div class="footer-bottom">
+        <span>© 2026 WERQA · Abu Dhabi, UAE</span>
+        <span>WERQA is a technology platform and is not a party to the transaction between shopper and traveller.</span>
+      </div>
     </div>
   </footer>
 
   <script>
     (function () {
+      // Header scroll shadow
+      var header = document.getElementById('siteHeader');
+      window.addEventListener('scroll', function () {
+        header.classList.toggle('scrolled', window.scrollY > 6);
+      }, { passive: true });
+
+      // Waitlist form
       var SB_URL = 'https://yogcudccxxvxwhigodir.supabase.co';
       var SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlvZ2N1ZGNjeHh2eHdoaWdvZGlyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYxNjU5NjYsImV4cCI6MjA5MTc0MTk2Nn0.kdkc_CowDH_yxBLs7pwAE5fL6kn3gJAlch7aH8P5NZ4';
 
       var form = document.getElementById('waitlist-form');
       var status = document.getElementById('form-status');
-      var button = form.querySelector('button');
+      var button = form.querySelector('button[type="submit"]');
 
       function setStatus(msg, kind) {
         status.textContent = msg;
-        status.className = 'form-status' + (kind ? ' ' + kind : '');
+        status.className = 'form-msg' + (kind ? ' ' + kind : '');
       }
 
       form.addEventListener('submit', function (e) {
@@ -423,12 +611,6 @@
         button.disabled = true;
         setStatus('Submitting…');
 
-        var body = JSON.stringify({
-          email: email,
-          city: city || null,
-          source: 'werqa.io'
-        });
-
         fetch(SB_URL + '/rest/v1/waitlist', {
           method: 'POST',
           headers: {
@@ -437,7 +619,11 @@
             'Content-Type': 'application/json',
             'Prefer': 'return=minimal'
           },
-          body: body
+          body: JSON.stringify({
+            email: email,
+            city: city || null,
+            source: 'werqa.io'
+          })
         }).then(function (r) {
           if (r.ok) {
             setStatus('Thanks — we’ll email you when the beta opens.', 'ok');
@@ -455,6 +641,5 @@
       });
     })();
   </script>
-
 </body>
 </html>
