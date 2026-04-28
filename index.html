@@ -7,6 +7,12 @@
   <title>WERQA — Cross-border commerce, carried.</title>
   <meta name="description" content="WERQA is a marketplace where shoppers in one country buy from stores in another, and travellers already flying that route earn by carrying the parcel — payment held in escrow until handoff." />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <meta property="og:title" content="WERQA — Cross-border commerce, carried." />
+  <meta property="og:description" content="Buy from stores in one country. A verified traveller already flying your route brings it. Money held in escrow until handoff." />
+  <meta property="og:url" content="https://werqa.io" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
   <style>
     :root{
       --ink:#0A0E1A;
@@ -106,6 +112,46 @@
     .step h3{font-size:20px;margin-bottom:10px;font-weight:600}
     .step p{color:var(--sterling);font-size:15px;line-height:1.6}
 
+    /* Trust */
+    .trust .trust-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+    @media(max-width:760px){.trust .trust-grid{grid-template-columns:1fr}}
+    .trust-card{
+      background:var(--charcoal);
+      padding:28px 24px;
+      border-radius:12px;
+      border:1px solid var(--graphite);
+    }
+    .trust-icon{
+      width:44px;
+      height:44px;
+      border-radius:10px;
+      background:var(--mint-soft);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin-bottom:16px;
+      color:var(--mint);
+    }
+    .trust-icon svg{width:22px;height:22px;stroke-width:1.8}
+    .trust-card h3{font-size:18px;margin-bottom:8px;font-weight:600}
+    .trust-card p{color:var(--sterling);font-size:14px;line-height:1.6}
+
+    /* FAQ */
+    .faq{background:var(--charcoal);border-top:1px solid var(--graphite);border-bottom:1px solid var(--graphite)}
+    .faq-list{display:flex;flex-direction:column;gap:14px;max-width:760px}
+    .faq-item{
+      background:var(--ink);
+      padding:24px 24px;
+      border-radius:10px;
+      border:1px solid var(--graphite);
+    }
+    .faq-item h3{font-size:17px;margin-bottom:8px;font-weight:600}
+    .faq-item p{color:var(--sterling);font-size:15px;line-height:1.65}
+
     /* Waitlist */
     .waitlist .lead{
       color:var(--sterling);
@@ -113,7 +159,6 @@
       margin-bottom:32px;
       font-size:17px;
     }
-
     form{
       display:flex;
       flex-wrap:wrap;
@@ -157,40 +202,55 @@
       opacity:0 !important;
       pointer-events:none !important;
     }
-    .form-status{
-      margin-top:16px;
-      font-size:14px;
-      min-height:20px;
-    }
+    .form-status{margin-top:16px;font-size:14px;min-height:20px}
     .form-status.ok{color:var(--mint)}
     .form-status.err{color:var(--error)}
 
-    /* Links */
-    .footer-links{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-top:48px;
-      padding-top:32px;
+    /* Footer */
+    .site-footer{
+      background:var(--charcoal);
       border-top:1px solid var(--graphite);
+      padding:40px 0 32px;
     }
+    .footer-grid{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:24px;
+    }
+    .footer-links{display:flex;gap:24px;flex-wrap:wrap}
     .footer-links a{
       color:var(--sterling);
       text-decoration:none;
       font-size:14px;
-      padding:6px 0;
       transition:color 0.15s ease;
     }
     .footer-links a:hover{color:var(--mint)}
-    .footer-links .sep{color:var(--graphite);user-select:none}
-
-    /* Footer */
-    footer.colophon{
-      padding:24px;
+    .social{display:flex;gap:10px}
+    .social a{
+      width:38px;
+      height:38px;
+      border-radius:50%;
+      background:var(--ink);
+      border:1px solid var(--graphite);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--sterling);
+      transition:all 0.15s ease;
+    }
+    .social a:hover{color:var(--mint);border-color:var(--mint-border);background:var(--mint-soft)}
+    .social svg{width:16px;height:16px;fill:currentColor}
+    .colophon{
+      max-width:960px;
+      margin:24px auto 0;
+      padding:24px 24px 0;
+      border-top:1px solid var(--graphite);
       text-align:center;
       font-size:12px;
       color:var(--sterling);
-      opacity:0.5;
+      opacity:0.7;
     }
   </style>
 </head>
@@ -228,6 +288,66 @@
     </div>
   </section>
 
+  <section class="trust">
+    <div class="container">
+      <p class="section-eyebrow">Built for trust</p>
+      <h2 class="section-heading">Designed so neither side has to take it on faith.</h2>
+      <div class="trust-grid">
+        <div class="trust-card">
+          <div class="trust-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="4" y="10" width="16" height="11" rx="2"/>
+              <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
+            </svg>
+          </div>
+          <h3>Money in escrow</h3>
+          <p>Your payment is held safely until you confirm receipt at handoff. No release without confirmation.</p>
+        </div>
+        <div class="trust-card">
+          <div class="trust-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 2 4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4z"/>
+              <path d="M9 12l2 2 4-4"/>
+            </svg>
+          </div>
+          <h3>Verified travellers</h3>
+          <p>Every traveller passes identity verification and sanctions screening before they accept any order.</p>
+        </div>
+        <div class="trust-card">
+          <div class="trust-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 7h3l2-3h8l2 3h3v13H3z"/>
+              <circle cx="12" cy="13" r="4"/>
+            </svg>
+          </div>
+          <h3>Photo + OTP at handoff</h3>
+          <p>Both sides confirm at the meeting point: photo of the parcel, one-time code from you. On the record.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq">
+    <div class="container">
+      <p class="section-eyebrow">FAQ</p>
+      <h2 class="section-heading">A few quick answers.</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3>How is pricing calculated?</h3>
+          <p>At checkout you see the total landed cost in your currency, including taxes and fees. The breakdown is shown before you confirm. No surprises.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Is my money safe?</h3>
+          <p>Yes. Your payment is held in escrow with a licensed payment service provider. It is only released once you confirm receipt of the parcel at handoff.</p>
+        </div>
+        <div class="faq-item">
+          <h3>When does the beta open?</h3>
+          <p>Closed beta launches in May 2026. Join the waitlist above and we will email you when invitations go out.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="waitlist" id="waitlist">
     <div class="container">
       <p class="section-eyebrow">Closed beta — May 2026</p>
@@ -241,19 +361,31 @@
         <button type="submit">Join</button>
       </form>
       <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
-
-      <div class="footer-links">
-        <a href="/privacy">Privacy</a>
-        <span class="sep">·</span>
-        <a href="/terms">Terms</a>
-        <span class="sep">·</span>
-        <a href="mailto:info@werqa.io">Contact</a>
-      </div>
     </div>
   </section>
 
-  <footer class="colophon">
-    © 2026 WERQA. WERQA is a technology platform and is not a party to the transaction between shopper and traveller.
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-links">
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
+          <a href="mailto:info@werqa.io">Contact</a>
+        </div>
+        <div class="social">
+          <a href="https://x.com/Werqa_io" target="_blank" rel="noopener" aria-label="WERQA on X">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/werqa.io" target="_blank" rel="noopener" aria-label="WERQA on Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.336 3.608 1.311.975.975 1.249 2.242 1.311 3.608.058 1.266.069 1.646.069 4.851s-.012 3.584-.07 4.85c-.062 1.366-.336 2.633-1.311 3.608-.975.975-2.242 1.249-3.608 1.311-1.266.058-1.646.07-4.85.07s-3.585-.012-4.85-.07c-1.367-.062-2.633-.336-3.608-1.311-.975-.975-1.249-2.242-1.311-3.608C2.175 15.747 2.163 15.367 2.163 12s.012-3.584.07-4.85c.062-1.366.336-2.633 1.311-3.608.975-.975 2.242-1.249 3.608-1.311C8.416 2.175 8.796 2.163 12 2.163zm0 1.802c-3.141 0-3.51.012-4.747.069-1.014.046-1.564.215-1.93.358-.486.189-.832.415-1.196.779-.364.364-.59.71-.779 1.196-.143.366-.312.916-.358 1.93-.057 1.237-.069 1.606-.069 4.747s.012 3.51.069 4.747c.046 1.014.215 1.564.358 1.93.189.486.415.832.779 1.196.364.364.71.59 1.196.779.366.143.916.312 1.93.358 1.237.057 1.606.069 4.747.069s3.51-.012 4.747-.069c1.014-.046 1.564-.215 1.93-.358.486-.189.832-.415 1.196-.779.364-.364.59-.71.779-1.196.143-.366.312-.916.358-1.93.057-1.237.069-1.606.069-4.747s-.012-3.51-.069-4.747c-.046-1.014-.215-1.564-.358-1.93a3.225 3.225 0 0 0-.779-1.196 3.225 3.225 0 0 0-1.196-.779c-.366-.143-.916-.312-1.93-.358-1.237-.057-1.606-.069-4.747-.069zm0 3.063A5.135 5.135 0 1 1 12 17.135 5.135 5.135 0 0 1 12 7.028zm0 8.468A3.333 3.333 0 1 0 12 8.83a3.333 3.333 0 0 0 0 6.666zm6.538-8.671a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@werqa.io" target="_blank" rel="noopener" aria-label="WERQA on TikTok">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 0 1-5.201 1.743 2.896 2.896 0 0 1 3.183-4.51v-3.5a6.329 6.329 0 0 0-5.394 10.692 6.328 6.328 0 0 0 10.857-4.424V8.687a8.182 8.182 0 0 0 4.773 1.526V6.79a4.831 4.831 0 0 1-1.003-.104z"/></svg>
+          </a>
+        </div>
+      </div>
+      <p class="colophon">© 2026 WERQA. WERQA is a technology platform and is not a party to the transaction between shopper and traveller.</p>
+    </div>
   </footer>
 
   <script>
@@ -274,7 +406,6 @@
         e.preventDefault();
         var fd = new FormData(form);
 
-        // Honeypot — silently "succeed" for bots
         if (fd.get('website')) {
           setStatus('Thanks — we’ll be in touch.', 'ok');
           form.reset();
