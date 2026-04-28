@@ -1,0 +1,21 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "TEAMID.io.werqa.app",
+        "paths": [
+          "/order/*",
+          "/trip/*",
+          "/invite/*",
+          "/handoff/*"
+        ]
+      }
+    ]
+  },
+  "webcredentials": {
+    "apps": [
+      "TEAMID.io.werqa.app"
+    ]
+  }
+}
